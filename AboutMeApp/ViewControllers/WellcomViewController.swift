@@ -20,4 +20,5 @@ final class WelcomeViewController: UIViewController {
         welcomeLabel.text = "Добро пожаловать, \(userName ?? "")!"
         welcomePerson.text = "Меня зовут \(personName ?? "")"
     }
+    
 }

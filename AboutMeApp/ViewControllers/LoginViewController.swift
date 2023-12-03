@@ -22,6 +22,8 @@ final class LoginViewController: UIViewController {
                 if let welcomeVC = navigationVC.topViewController as? WelcomeViewController {
                     welcomeVC.userName = user.userName
                     welcomeVC.personName = person.personName
+                } else if let factVC = navigationVC.topViewController as? FactViewController {
+                    factVC.fact = person.personFact
                 }
             } else if let twoVC = viewController as? TwoViewController {
                 twoVC.surename = person.personSurname
@@ -30,7 +32,7 @@ final class LoginViewController: UIViewController {
                 threeVC.job = person.personJob
             } else if let fourVC = viewController as? FourViewController {
                 fourVC.education = person.personЕducation
-            }
+            } 
         }
     }
 
