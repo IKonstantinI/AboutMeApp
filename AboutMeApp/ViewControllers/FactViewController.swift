@@ -11,10 +11,10 @@ final class FactViewController: UIViewController {
 
     @IBOutlet var factLabel: UILabel!
     
-    var fact: String!
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        factLabel.text = "\(fact ?? "")"
+        factLabel.text = "\(user.person.personFact)"
     }
 }

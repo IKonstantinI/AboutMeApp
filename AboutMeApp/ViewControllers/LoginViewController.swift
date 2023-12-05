@@ -12,27 +12,23 @@ final class LoginViewController: UIViewController {
     @IBOutlet var userNameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
-    private let user = getUser()
-    private let person = getPerson()
+    private let user = User.getUser()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let tabBarVC = segue.destination as? UITabBarController else { return }
         tabBarVC.viewControllers?.forEach { viewController in
             if let navigationVC = viewController as? UINavigationController {
                 if let welcomeVC = navigationVC.topViewController as? WelcomeViewController {
-                    welcomeVC.userName = user.userName
-                    welcomeVC.personName = person.personName
-                } else if let factVC = navigationVC.topViewController as? FactViewController {
-                    factVC.fact = person.personFact
+                    welcomeVC.user = user
                 }
             } else if let twoVC = viewController as? TwoViewController {
-                twoVC.surename = person.personSurname
-                twoVC.age = person.personAge
+                twoVC.surename = user.person.personSurname
+                twoVC.age = user.person.personAge
             } else if let threeVC = viewController as? ThreeViewController {
-                threeVC.job = person.personJob
+                threeVC.job = user.person.personJob
             } else if let fourVC = viewController as? FourViewController {
-                fourVC.education = person.personЕducation
-            } 
+                fourVC.education = user.person.personЕducation
+            }
         }
     }
 
